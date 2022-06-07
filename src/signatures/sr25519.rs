@@ -52,13 +52,14 @@ impl Signature {
     ///
     /// NOTE: No checking goes on to ensure this is a real signature.
     /// Only use it if you are certain that the array actually is a signature.
-    pub fn from_slice(data: &[u8]) -> Option<Self> {
-        if data.len() != 64 {
-            return None;
-        }
-        let mut r = [0u8; 64];
-        r.copy_from_slice(data);
-        Some(Self(SrSignature(r)))
+
+    pub fn from_slice(data: &[u8]) -> Result<Self> {
+        Ok(Self(SrSignature::from_slice(data).ok_or(
+            Error::InvalidArgumentError {
+                alg: "bytes",
+                expected: "a valid secret key byte array",
+            },
+        )?))
     }
 
     /// A new instance from the given 64-byte data.
