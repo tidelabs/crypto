@@ -52,6 +52,7 @@ impl Signature {
     ///
     /// NOTE: No checking goes on to ensure this is a real signature.
     /// Only use it if you are certain that the array actually is a signature.
+
     pub fn from_slice(data: &[u8]) -> Result<Self> {
         Ok(Self(SrSignature::from_slice(data).ok_or(
             Error::InvalidArgumentError {

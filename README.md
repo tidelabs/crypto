@@ -1,13 +1,6 @@
 # crypto.rs
 
-[![](https://img.shields.io/crates/v/iota-crypto?style=flat-square)](https://crates.io/crates/iota-crypto)
-[![](https://img.shields.io/docsrs/iota-crypto?style=flat-square)](https://docs.rs/iota-crypto/)
-![](https://img.shields.io/crates/l/iota-crypto?style=flat-square)
-
-[![tests](https://github.com/iotaledger/crypto.rs/actions/workflows/tests.yml/badge.svg)](https://github.com/iotaledger/crypto.rs/actions/workflows/tests.yml)
-[![coverage](https://coveralls.io/repos/github/iotaledger/crypto.rs/badge.svg?branch=dev)](https://coveralls.io/github/iotaledger/crypto.rs?branch=dev)
-[![dependency status](https://deps.rs/repo/github/iotaledger/crypto.rs/status.svg)](https://deps.rs/repo/github/iotaledger/crypto.rs)
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fiotaledger%2Fcrypto.rs.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fiotaledger%2Fcrypto.rs?ref=badge_shield)
+### A fork of the Iotaledger crypto.rs library. 
 
 A boundary crate of selected implementations of crypto primitives that are considered to be safe to use within the IOTA Foundation.
 
@@ -25,8 +18,10 @@ To be included in this list an implementation must:
 | ciphers     | AES-256-GCM        | [`aes`](/src/ciphers/aes.rs)        | [spec][AES-GCM-SPEC]       | `aes-gcm`          | [nist][AES-GCM-TEST]     | ★★★☆☆ |
 | ciphers     | AES-KW        | [`aes-kw`](/src/ciphers/aes_kw.rs)        | [spec][AES-GCM-SPEC]       | `aes-crate`          | [nist][AES-GCM-TEST]     | ★★★☆☆ |
 | ciphers     | XCHACHA20-POLY1305 | [`chacha`](/src/ciphers/chacha.rs)  | [rfc][XCHACHA-RFC]         | `chacha20poly1305` | [official][XCHACHA-TEST] | ★★★★★ |
+| ciphers     | AES-CBC | [`aes-cbc`](/src/aes_cbc.rs) | [rfc](https://tools.ietf.org/html/rfc7518) | `crypto.rs` | [official](https://tools.ietf.org/html/rfc7518#appendix-B) | ☆☆☆☆☆ |
+| hashes       | BLAKE2b-160        | [`blake2b`](/src/hashes/blake2b.rs) | [rfc][BLAKE2B-RFC]         | `blake2`           | [official][BLAKE2B-TEST] | ★★★★☆ |
 | hashes       | BLAKE2b-256        | [`blake2b`](/src/hashes/blake2b.rs) | [rfc][BLAKE2B-RFC]         | `blake2`           | [official][BLAKE2B-TEST] | ★★★★☆ |
-| hashes       | CURL-P             | [`curl-p`](/src/hashes/curl_p.rs)   | [rfc][CURL-RFC]            | `bee-ternary`      | official                 | ★★☆☆☆ |
+| hashes       | CURL-P             | [`curl-p`](/src/hashes/ternary/curl_p/mod.rs)   | [rfc][CURL-RFC]            | `bee-ternary`      | official                 | ★★☆☆☆ |
 | hashes       | SHA2-256           | [`sha`](/src/hashes/sha.rs)         | [spec][SHA2-SPEC]          | `sha2`             | [nist][SHA2-TEST]        | ★★★★★ |
 | hashes       | SHA2-384           | [`sha`](/src/hashes/sha.rs)         | [spec][SHA2-SPEC]          | `sha2`             | [nist][SHA2-TEST]        | ★★★★★ |
 | hashes       | SHA2-512           | [`sha`](/src/hashes/sha.rs)         | [spec][SHA2-SPEC]          | `sha2`             | [nist][SHA2-TEST]        | ★★★★★ |
@@ -144,6 +139,3 @@ Apache 2.0
 [BIP39-TEST]: https://github.com/bip32JP/bip32JP.github.io/blob/master/test_JP_BIP39.json
 
 [SLIP10-RFC]: https://github.com/satoshilabs/slips/blob/master/slip-0010.md
-
-
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fiotaledger%2Fcrypto.rs.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fiotaledger%2Fcrypto.rs?ref=badge_large)
