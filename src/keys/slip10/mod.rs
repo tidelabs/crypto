@@ -194,14 +194,14 @@ impl Into<super::bip44::Segment> for Segment {
     fn into(self) -> super::bip44::Segment {
         super::bip44::Segment {
             hardened: self.hardened,
-            i: as_u32_be(&self.bs),
+            i: u32::from_be_bytes(self.bs),
         }
     }
 }
 
-fn as_u32_be(array: &[u8; 4]) -> u32 {
-    ((array[0] as u32) << 24) + ((array[1] as u32) << 16) + ((array[2] as u32) << 8) + ((array[3] as u32) << 0)
-}
+// fn as_u32_be(array: &[u8; 4]) -> u32 {
+//     ((array[0] as u32) << 24) + ((array[1] as u32) << 16) + ((array[2] as u32) << 8) + ((array[3] as u32) << 0)
+// }
 
 impl PrivateKey<ed25519::SecretKey> for Key {
     type SecretKey = ed25519::SecretKey;
